@@ -44,7 +44,7 @@ input, textarea {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-#recipes-by-ingredients {
+#recipes-by-ingredients, #recipes-by-categories, #recipes-by-countries {
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 10px;

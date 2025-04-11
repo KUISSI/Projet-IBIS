@@ -6,6 +6,9 @@
     <title>KekebonKekepabon - Nutrition</title>
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
+    <script src="recipeCard.js" defer></script>
+    <script src="pays.js" defer></script>
+    <script src="categoriesRecipes.js" defer></script>
 </head>
 <body>
     <header class="hero">
@@ -17,19 +20,35 @@
           <input type="text", id="ingredients" placeholder="Entrez un ingrédient">   
         </div>
     </header>
-
+<!-- div pour stocké les recettes lors du choix de l'ingrédient -->
     <div id="recipes-by-ingredients">
 
     </div>
-
+<!-- div pour stocké les recettes au moment du clique sur l'img -->
     <div id="recipes-by-click">
 
     </div>
-
+<!-- menu déroulant pour les pays -->
     <label for="countries">Choose a country:</label>
     <select id="countries">
      
     </select>
+<!-- menu déroulant pour les catégories -->
+    <label for="categories">Choose a category:</label>
+    <select id="categories">
+     
+    </select>
+    <!-- div pour stocker les recettes lors du clique sur les catégories -->
+    <div id="recipes-by-categories"> 
+
+    </div>
+
+<!-- div pour stocker les recettes lors du clique sur les pays -->
+<div id="recipes-by-countries">
+  
+</div>
+
+
     <main>
 
 
@@ -40,19 +59,3 @@
 
 </html>
 
-<!-- // liste déroulante pays
-
-    // fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list").then((response) => {
-    //     return response.json();
-    // }).then((json)=>{
-    //         console.log (json);
-    //     }).then((countries => {
-    //         const selectElement = document.getElementById("countries");
-    //         for (const country of countries.meals) {
-    //             const optionElement = document.createElement("option");
-    //             optionElement.innerText = country.strArea;
-    //             selectElement.append(optionElement)
-                
-    //             console.log(country.strArea);
-
-  -->
