@@ -53,7 +53,7 @@ function getIngredients(meal) {
 }
 
 
-
+// Fonction pour afficher les détails d'un repas
 function displayDetailedMeal(detailedMeal) {  
         document.getElementById("recipes-by-countries").innerHTML = "";
         document.getElementById("recipes-by-categories").innerHTML = "";
