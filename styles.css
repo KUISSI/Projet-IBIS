@@ -1,3 +1,6 @@
+/* ===========================
+   VARIABLES (THEME)
+=========================== */
 :root {
   --green: #4caf50;
   --orange: #ff9800;
@@ -9,105 +12,50 @@
   --font-text: "Open Sans", sans-serif;
 }
 
+/* ===========================
+   BASE / RESETS
+=========================== */
 * {
-  font-family: var(--font-text);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--font-text);
 }
 
 body {
-  font-family: var(--font-text);
   background-color: var(--white);
   color: var(--gray);
 }
 
 main {
-  margin-top: 80px; /* adapte selon la hauteur de ta barre */
+  margin-top: 80px;
 }
 
-.filters-bar {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 40px;
-  gap: 20px;
-  background-color: transparent;
-  backdrop-filter: blur(4px); /* effet verre dépoli */
-  padding: 30px;
-}
-
-.filters-bar select {
-  font-family: var(--font-text);
-  font-size: 1rem;
-  padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.85); /* ou var(--white) */
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  color: var(--black);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.filters-bar select:hover {
-  border-color: var(--green);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 2.5rem;
+h1, h2, h3 {
+  text-align: center;
   font-family: var(--font-title);
-  color: var(--black);
+  margin-bottom: 20px;
 }
 
-h2 {
-  font-size: 2rem;
-  font-family: var(--font-title);
-  color: var(--orange);
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-family: var(--font-title);
-  color: var(--gray);
-}
+h1 { font-size: 2.5rem; color: var(--black); }
+h2 { font-size: 2rem; color: var(--orange); }
+h3 { font-size: 1.5rem; color: var(--gray); }
 
 p {
   font-size: 1rem;
-  font-family: var(--font-text);
   color: var(--black);
 }
 
-section {
-  margin: 40px 0;
-  padding: 20px;
-}
-
-h1,
-h2,
-h3 {
-  text-align: center;
-}
-
-.logo {
-  width: 30%;
-  height: auto;
-}
-
+/* ===========================
+   HEADER / HERO SECTION
+=========================== */
 .hero {
   text-align: center;
-  color: black;
-}
-
-.hero {
-  padding: 20px 30px 10px 30px;
+  padding: 20px 30px 10px;
   background-image: url("im2.jpg");
   background-position: center;
   background-size: cover;
+  color: black;
 }
 
 .hero p {
@@ -115,8 +63,45 @@ h3 {
   margin: 20px 0;
 }
 
-input,
-textarea {
+.logo {
+  width: 30%;
+  height: auto;
+}
+
+/* ===========================
+   FILTERS / SEARCH
+=========================== */
+.filters-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 30px 40px;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.filters-bar select {
+  font-size: 1rem;
+  padding: 10px 15px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters-bar select:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input {
   display: block;
   width: 30%;
   margin: 10px auto;
@@ -126,6 +111,9 @@ textarea {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+/* ===========================
+   RECIPE LISTING
+=========================== */
 #recipes-by-ingredients,
 #recipes-by-categories,
 #recipes-by-countries {
@@ -136,16 +124,11 @@ textarea {
   align-items: center;
 }
 
-#recipes-by-click {
-  margin-top: 50px;
-  min-height: 150px;
-}
-
 .recipe {
-  padding: 10px;
-  width: 100%;
   max-width: 250px;
+  width: 100%;
   text-align: center;
+  padding: 10px;
   overflow: hidden;
 }
 
@@ -157,9 +140,17 @@ textarea {
 }
 
 .recipe h2 {
-  color: var(--orange);
   font-size: 1rem;
   margin: 10px 0 0;
+  color: var(--orange);
+}
+
+/* ===========================
+   RECIPE DETAIL VIEW
+=========================== */
+#recipes-by-click {
+  margin-top: 50px;
+  min-height: 150px;
 }
 
 .recipe-detail {
@@ -183,10 +174,9 @@ textarea {
 }
 
 .recipe-detail h3 {
-  color: var(--green);
-  margin-top: 20px;
-  margin-bottom: 20px;
   font-size: 1.2rem;
+  color: var(--green);
+  margin: 20px 0;
 }
 
 .recipe-detail img {
@@ -199,7 +189,7 @@ textarea {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--gray);
-  white-space: pre-wrap; /* pour afficher les sauts de ligne */
+  white-space: pre-wrap;
 }
 
 .recipe-detail li {
@@ -212,4 +202,5 @@ textarea {
   transition: opacity 0.3s ease;
   display: block;
   margin: 10px auto;
+  max-width: 150px;
 }
