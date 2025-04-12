@@ -15,11 +15,46 @@ function createRecipeCard(meal) {
     const id = meal.idMeal;
     console.log(id);
     fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
-      .then((response) => {
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);  
+      }  
         return response.json();
-      })
+    })
+    .catch((error) => {
+      console.error("Il y a eu un problème avec la requête fetch :", error);
+    }
+    )
       .then((json) => {
         const detailedMeal = json.meals[0];
+        console.log(detailedMeal);
+        displayDetailedMeal(detailedMeal); // Appel de la fonction pour afficher le détail de la recette
+      });
+  });
+
+  return divElement;
+} 
+
+
+// Fonction pour récupérer les ingrédients d'un repas
+function getIngredients(meal) {
+  let ingredients = []; // Initialisation dun tableau vide pour stocker les ingrédients
+  for (let i = 1; i <= 20; i++) {
+    // L'API retourne jusqu'à 20 ingrédients
+    const ingredient = meal[`strIngredient${i}`]; // Accès dynamique à strIngredient1, strIngredient2, ...
+    const measure = meal[`strMeasure${i}`]; // Accès dynamique à strMeasure1, strMeasure2, ...
+    if (ingredient && ingredient.trim() !== "") {
+      // Vérifie si l'ingrédient est défini et non vide
+      ingredients.push(`${ingredient} - ${measure}`); // Ajoute l'ingrédient et sa mesure au tableau
+    }
+  }
+
+  return ingredients; // Retourne la liste des ingrédients
+}
+
+
+
+function displayDetailedMeal(detailedMeal) {  
         document.getElementById("recipes-by-countries").innerHTML = "";
         document.getElementById("recipes-by-categories").innerHTML = "";
         console.log(detailedMeal);
@@ -37,6 +72,7 @@ function createRecipeCard(meal) {
         const areaClick = document.createElement("h2");
         areaClick.innerHTML = detailedMeal.strArea;
         detailCard.appendChild(areaClick);
+          
 
         const imgClick = document.createElement("img");
         imgClick.id = "imgReceipe";
@@ -76,7 +112,7 @@ function createRecipeCard(meal) {
           li.addEventListener("mouseleave", () => {
             previewImage.style.display = "none";
           });
-          
+
           ingredientsList.appendChild(li);
         }
 
@@ -93,23 +129,4 @@ function createRecipeCard(meal) {
         detailCard.appendChild(instructionsClick);
 
         recettesClick.appendChild(detailCard);
-      });
-  });
-
-  return divElement;
-}
-
-function getIngredients(meal) {
-  let ingredients = []; // Initialisation dun tableau vide pour stocker les ingrédients
-  for (let i = 1; i <= 20; i++) {
-    // L'API retourne jusqu'à 20 ingrédients
-    const ingredient = meal[`strIngredient${i}`]; // Accès dynamique à strIngredient1, strIngredient2, ...
-    const measure = meal[`strMeasure${i}`]; // Accès dynamique à strMeasure1, strMeasure2, ...
-    if (ingredient && ingredient.trim() !== "") {
-      // Vérifie si l'ingrédient est défini et non vide
-      ingredients.push(`${ingredient} - ${measure}`); // Ajoute l'ingrédient et sa mesure au tableau
-    }
-  }
-
-  return ingredients; // Retourne la liste des ingrédients
-}
+      }

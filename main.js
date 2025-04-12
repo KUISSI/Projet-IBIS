@@ -1,17 +1,26 @@
 // écoute de input utilisateur
 const searchIngredients = document.getElementById("ingredients");
+
 searchIngredients.addEventListener("change", (event) => {
   const ingredients = event.target.value;
   console.log("Ingrédient tapé : " + ingredients);
+
   // Sélection de la liste des recettes sur le site
   fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredients)
-    .then((response) => {
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Erreur réseau : " + response.statusText);  
+    }  
       return response.json();
-    })
+  })
+  .catch((error) => {
+    console.error("Il y a eu un problème avec la requête fetch :", error);
+    const messageErreur = document.getElementById("recipes-by-ingredients");
+    messageErreur.innerText = "Oups ! Une erreur est survenue lors du chargement.";
+  }
+  )
     .then((json) => {
-      const recettesIngredients = document.getElementById(
-        "recipes-by-ingredients"
-      );
+      const recettesIngredients = document.getElementById("recipes-by-ingredients");
       recettesIngredients.innerText = ""; //remettre à 0 l'affichage
 
       if (json.meals.length > 0) {

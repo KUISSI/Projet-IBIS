@@ -2,7 +2,16 @@
 const selectElementPays = document.getElementById("countries");
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);  
+      }  
+        return response.json();
+    })
+    .catch((error) => {
+      console.error("Il y a eu un problème avec la requête fetch :", error);
+    }
+    )
     .then((json) => {
       const detailedCountry = json.meals;
       console.log(detailedCountry);
@@ -29,7 +38,19 @@ selectElementPays.addEventListener("change", () => {
     "https://www.themealdb.com/api/json/v1/1/filter.php?a=" +
       selectElementPays.value
   )
-    .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);  
+    }  
+      return response.json();
+  })
+  .catch((error) => {
+    console.error("Il y a eu un problème avec la requête fetch :", error);
+    //Affichage d’un message dans la page
+    const messageErreur = document.getElementById("recipes-by-countries");
+    messageErreur.innerText = "Oups ! Une erreur est survenue lors du chargement.";
+  }
+  )
     .then((json) => {
       const recettePays = document.getElementById("recipes-by-countries");
 
