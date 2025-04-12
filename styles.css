@@ -1,56 +1,144 @@
+:root {
+  --green: #4caf50;
+  --orange: #ff9800;
+  --white: #ffffff;
+  --gray: #9e9e9e;
+  --black: #242121;
+
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Open Sans", sans-serif;
+}
+
 * {
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: var(--font-text);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #FFFFFF;
-    color: #4CAF50;
+  font-family: var(--font-text);
+  background-color: var(--white);
+  color: var(--gray);
+}
+
+main {
+  margin-top: 80px; /* adapte selon la hauteur de ta barre */
+}
+
+.filters-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 40px;
+  gap: 20px;
+  background-color: transparent;
+  backdrop-filter: blur(4px); /* effet verre dépoli */
+  padding: 30px;
+}
+
+.filters-bar select {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.85); /* ou var(--white) */
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  color: var(--black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filters-bar select:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  color: var(--black);
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: var(--font-title);
+  color: var(--orange);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+  color: var(--gray);
+}
+
+p {
+  font-size: 1rem;
+  font-family: var(--font-text);
+  color: var(--black);
+}
+
+section {
+  margin: 40px 0;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 
 .logo {
-    width: 30%;
-    height: auto;
+  width: 30%;
+  height: auto;
 }
 
 .hero {
-    text-align: center;
-    color: black;
-}  
+  text-align: center;
+  color: black;
+}
 
 .hero {
-    padding: 50px;
-    max-width: 100vw;
-    background-image: url('im2.jpg');
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
-
+  padding: 20px 30px 10px 30px;
+  background-image: url("im2.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .hero p {
-    font-size: 1.5em;
-    margin: 20px 0;
+  font-size: 1.5em;
+  margin: 20px 0;
 }
 
-input, textarea {
-    display: block;
-    width: 30%;
-    margin: 10px auto;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+input,
+textarea {
+  display: block;
+  width: 30%;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-#recipes-by-ingredients, #recipes-by-categories, #recipes-by-countries {
+#recipes-by-ingredients,
+#recipes-by-categories,
+#recipes-by-countries {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   justify-items: center;
   align-items: center;
-  
+}
+
+#recipes-by-click {
+  margin-top: 50px;
+  min-height: 150px;
 }
 
 .recipe {
@@ -68,9 +156,54 @@ input, textarea {
   object-fit: cover;
 }
 
-
 .recipe h2 {
-  color: #333;
+  color: var(--orange);
   font-size: 1rem;
   margin: 10px 0 0;
+}
+
+.recipe-detail {
+  background-color: var(--white);
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  text-align: center;
+}
+
+.recipe-detail h1 {
+  font-size: 2rem;
+  color: var(--green);
+}
+
+.recipe-detail h2 {
+  font-size: 1.3rem;
+  color: var(--orange);
+}
+
+.recipe-detail h3 {
+  color: var(--green);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.recipe-detail img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.recipe-detail p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray);
+  white-space: pre-wrap; /* pour afficher les sauts de ligne */
+}
+
+.recipe-detail li {
+  list-style: none;
+  padding: 10px 0;
+  white-space: pre-line;
 }

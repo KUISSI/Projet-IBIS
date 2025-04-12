@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,53 +10,48 @@
     <script src="recipeCard.js" defer></script>
     <script src="pays.js" defer></script>
     <script src="categoriesRecipes.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
     <header class="hero">
+        <div class="filters-bar">
+            <!-- menu déroulant pour les pays -->
+            <label for="countries">Choose a country:</label>
+            <select id="countries">
+
+            </select>
+            <!-- menu déroulant pour les catégories -->
+            <label for="categories">Choose a category:</label>
+            <select id="categories">
+
+            </select>
+        </div>
         <div>
-        <img src="logo.png" alt="KekebonKekepabon Logo" class="logo">
-        <p>La nutrition saine et équilibrée à portée de main.</p>
+            <img src="logo.png" alt="KekebonKekepabon Logo" class="logo">
+            <p>La nutrition saine et équilibrée à portée de main.</p>
         </div>
         <div class="searchIngredients">
-          <input type="text", id="ingredients" placeholder="Entrez un ingrédient">   
+            <input type="text" , id="ingredients" placeholder="Entrez un ingrédient">
         </div>
     </header>
-<!-- div pour stocké les recettes lors du choix de l'ingrédient -->
-    <div id="recipes-by-ingredients">
-
-    </div>
-<!-- div pour stocké les recettes au moment du clique sur l'img -->
-    <div id="recipes-by-click">
-
-    </div>
-<!-- menu déroulant pour les pays -->
-    <label for="countries">Choose a country:</label>
-    <select id="countries">
-     
-    </select>
-<!-- menu déroulant pour les catégories -->
-    <label for="categories">Choose a category:</label>
-    <select id="categories">
-     
-    </select>
-    <!-- div pour stocker les recettes lors du clique sur les catégories -->
-    <div id="recipes-by-categories"> 
-
-    </div>
-
-<!-- div pour stocker les recettes lors du clique sur les pays -->
-<div id="recipes-by-countries">
-  
-</div>
-
-
     <main>
+        <!-- div pour stocké les recettes lors du choix de l'ingrédient -->
+        <div id="recipes-by-ingredients"></div>
 
+        <!-- div pour stocker les recettes lors du clique sur les catégories -->
+        <div id="recipes-by-categories"> </div>
 
-  
-  </main>
+        <!-- div pour stocker les recettes lors du clique sur les pays -->
+        <div id="recipes-by-countries"></div>
+
+        <!-- div pour stocké les recettes au moment du clique sur l'img -->
+        <div id="recipes-by-click"></div>
+
+    </main>
 
 </body>
 
 </html>
-
