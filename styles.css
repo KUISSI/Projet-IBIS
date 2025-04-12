@@ -207,3 +207,9 @@ textarea {
   padding: 10px 0;
   white-space: pre-line;
 }
+
+#ingredient-preview {
+  transition: opacity 0.3s ease;
+  display: block;
+  margin: 10px auto;
+}

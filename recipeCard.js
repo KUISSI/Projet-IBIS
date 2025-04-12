@@ -46,11 +46,43 @@ function createRecipeCard(meal) {
         const ingredientsTitle = document.createElement("h3"); // ajoute un titre ingrédients
         ingredientsTitle.innerText = "Ingrédients";
         detailCard.appendChild(ingredientsTitle);
+        
+        // créer une image pour l'aperçu de l'ingrédient
+        const previewImage = document.createElement("img");
+        previewImage.id = "ingredient-preview";
+        previewImage.style.display = "none";
+        previewImage.style.maxWidth = "150px";
+        previewImage.style.marginTop = "20px";
 
-        const ingredientsClick = document.createElement("li");
+        // créer une liste d'ingrédients
+        const ingredientsList = document.createElement("ul");
+        ingredientsList.className = "ingredients-list";
+
+        // On récupère les ingrédients
         const ingredients = getIngredients(detailedMeal);
-        ingredientsClick.innerHTML = ingredients;
-        detailCard.appendChild(ingredientsClick);
+
+        // Pour chaque ingrédient, on ajoute un <li>
+        for (const item of ingredients) {
+          const li = document.createElement("li");
+          li.innerText = item;
+          // On ajoute un écouteur d'événement pour afficher l'image de l'ingrédient au survol
+          li.addEventListener("mouseenter", () => {
+            const ingredientName = item.split(" - ")[0]; // On récupère le nom de l'ingrédient
+            previewImage.src = "https://www.themealdb.com/images/ingredients/" + ingredientName + ".png"; // URL de l'image de l'ingrédient
+            previewImage.alt = ingredientName;
+            previewImage.style.display = "block";
+          });
+          // On ajoute un écouteur d'événement pour masquer l'image de l'ingrédient au survol
+          li.addEventListener("mouseleave", () => {
+            previewImage.style.display = "none";
+          });
+          
+          ingredientsList.appendChild(li);
+        }
+
+        detailCard.appendChild(previewImage);
+
+        detailCard.appendChild(ingredientsList); // Ajoute la liste d'ingrédients à la carte de détails
 
         const instructionsTitle = document.createElement("h3"); // ajoute un titre instructions
         instructionsTitle.innerText = "Instructions";
@@ -75,9 +107,9 @@ function getIngredients(meal) {
     const measure = meal[`strMeasure${i}`]; // Accès dynamique à strMeasure1, strMeasure2, ...
     if (ingredient && ingredient.trim() !== "") {
       // Vérifie si l'ingrédient est défini et non vide
-      ingredients += `${ingredient} - ${measure}\n`; // Ajoute l'ingrédient et sa mesure à la chaîne
+      ingredients.push(`${ingredient} - ${measure}`); // Ajoute l'ingrédient et sa mesure au tableau
     }
   }
 
-  return ingredients.trim(); // Retourne la liste des ingrédients sans espaces inutiles
+  return ingredients; // Retourne la liste des ingrédients
 }
