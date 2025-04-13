@@ -111,6 +111,16 @@ input {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.error-message {
+  background-color: rgba(192, 228, 139, 0.267);
+  color: rgb(230, 124, 86);
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 /* ===========================
    RECIPE LISTING
 =========================== */
