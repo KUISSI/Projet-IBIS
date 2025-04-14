@@ -11,18 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       return response.json();
     })
-    .catch((error) => {
-      console.error("Il y a eu un problème avec la requête fetch :", error);
-    })
     .then((json) => {
       const detailedCountry = json.meals;
       console.log(detailedCountry);
-
+      
       if (json.meals.length > 0) {
         for (const detailedCountry of json.meals) {
           // créer un élément équivalent div qui sera stocké dans le bloc selectElementPays
           const optionElement = document.createElement("option");
-
+          
           optionElement.innerHTML = detailedCountry.strArea;
           // Valeur que l'on veut retrouver en résultat
           optionElement.value = detailedCountry.strArea;
@@ -32,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         selectElementPays.innerText = "Aucun pays trouvé";
       }
+    })
+    .catch((error) => {
+      console.error("Il y a eu un problème avec la requête fetch :", error);
     });
 });
 
@@ -50,21 +50,21 @@ selectElementPays.addEventListener("change", () => {
       }
       return response.json();
     })
+    .then((json) => {
+      const recettePays = document.getElementById("recipes-by-countries");
+      
+      recettePays.innerText = "";
+      
+      for (const meal of json.meals) {
+        const cardPays = createRecipeCard(meal);
+        recettePays.appendChild(cardPays);
+      }
+    })
     .catch((error) => {
       console.error("Il y a eu un problème avec la requête fetch :", error);
       //Affichage d’un message dans la page
       const messageErreur = document.getElementById("recipes-by-countries");
       messageErreur.innerText =
         "Oups ! Une erreur est survenue lors du chargement.";
-    })
-    .then((json) => {
-      const recettePays = document.getElementById("recipes-by-countries");
-
-      recettePays.innerText = "";
-
-      for (const meal of json.meals) {
-        const cardPays = createRecipeCard(meal);
-        recettePays.appendChild(cardPays);
-      }
     });
 });

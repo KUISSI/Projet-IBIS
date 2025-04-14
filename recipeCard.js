@@ -1,18 +1,18 @@
 // fonction pour afficher les noms de recettes ainsi que leurs images
 function createRecipeCard(meal) {
-  const divElement = document.createElement("div");
+  const divElement = document.createElement("div"); //création d'une div pour chaque recette
   divElement.className = "recipe";
 
-  const title = document.createElement("h2");
+  const title = document.createElement("h2"); //création d'un titre pour chaque recette
   title.innerText = meal.strMeal;
   divElement.appendChild(title);
 
-  const img = document.createElement("img");
+  const img = document.createElement("img"); //création d'une image pour chaque recette
   img.id = "imgReceipe";
   img.src = meal.strMealThumb;
   divElement.appendChild(img);
 
-  img.addEventListener("click", () => {
+  img.addEventListener("click", () => { // écoute de l'événement click sur l'image
     const id = meal.idMeal;
     console.log(id);
     fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
@@ -22,15 +22,15 @@ function createRecipeCard(meal) {
       }  
         return response.json();
     })
+    .then((json) => {
+      const detailedMeal = json.meals[0];
+      console.log(detailedMeal);
+      displayDetailedMeal(detailedMeal); // Appel de la fonction pour afficher le détail de la recette
+    })
     .catch((error) => {
       console.error("Il y a eu un problème avec la requête fetch :", error);
-    }
-    )
-      .then((json) => {
-        const detailedMeal = json.meals[0];
-        console.log(detailedMeal);
-        displayDetailedMeal(detailedMeal); // Appel de la fonction pour afficher le détail de la recette
-      });
+    });
+    
   });
 
   return divElement;

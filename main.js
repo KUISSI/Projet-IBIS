@@ -13,18 +13,12 @@ searchIngredients.addEventListener("change", (event) => {
       }
       return response.json();
     })
-    .catch((error) => {
-      console.error("Il y a eu un problème avec la requête fetch :", error);
-      const messageErreur = document.getElementById("recipes-by-ingredients");
-      messageErreur.innerText =
-        "Oups ! Une erreur est survenue lors du chargement.";
-    })
     .then((json) => {
       const recettesIngredients = document.getElementById(
         "recipes-by-ingredients"
       );
       recettesIngredients.innerText = ""; //remettre à 0 l'affichage
-
+      
       if (json.meals !== null && json.meals.length > 0) {
         // Vérifie si la liste des recettes n'est pas vide
         // Si la liste n'est pas vide, on affiche les recettes
@@ -38,6 +32,12 @@ searchIngredients.addEventListener("change", (event) => {
         message.className = "error-message";
         recettesIngredients.appendChild(message);
       }
+    })
+    .catch((error) => {
+      console.error("Il y a eu un problème avec la requête fetch :", error);
+      const messageErreur = document.getElementById("recipes-by-ingredients");
+      messageErreur.innerText =
+        "Oups ! Une erreur est survenue lors du chargement.";
     });
 });
 
