@@ -47,29 +47,71 @@ p {
 }
 
 /* ===========================
-   HEADER / HERO SECTION
+HEADER / HERO SECTION
 =========================== */
-.hero {
-  text-align: center;
-  padding: 20px 30px 10px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("im2.jpg");
+
+.redesigned-hero {
+  background-image: url("im2.jpg");
   background-size: cover;
   background-position: center;
-  background-blend-mode: darken;
-  color: white; /* pour le texte */
-}
-
-.hero p {
+  padding: 60px 20px;
+  position: relative;
   color: white;
-  font-weight: bold;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* pour renforcer la lisibilité */
-  font-size: 1.5rem;
+  text-align: center;
 }
 
-.logo {
-  width: 30%;
-  height: auto;
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
 }
+
+.redesigned-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.redesigned-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.hero-actions input,
+.hero-actions select {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdowns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scroll-down-indicator {
+  margin-top: 20px;
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+
 
 /* ===========================
    FILTERS / SEARCH

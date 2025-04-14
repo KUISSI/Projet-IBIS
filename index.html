@@ -17,27 +17,26 @@
 </head>
 
 <body>
-    <header class="hero">
-        <div class="filters-bar">
-            <!-- menu déroulant pour les pays -->
-            <label for="countries">Choisir un pays :</label>
-            <select id="countries">
+    <header class="hero redesigned-hero">
+        <div class="hero-overlay">
+          <img src="logo.png" class="logo" alt="Logo">
+          <h1>Explorez la cuisine du monde 🌍</h1>
+          <p>Recherchez des recettes par ingrédient, pays ou type de plat.</p>
+      
+          <div class="hero-actions">
+            <input type="text" id="ingredients" placeholder="Entrez un ingrédient...">
+            <div class="dropdowns">
+              <select id="countries"></select>
+              <select id="categories"></select>
+            </div>
+          </div>
+      
+          <div class="scroll-down-indicator">⬇️</div>
+        </div>
+      </header>
+      
 
-            </select>
-            <!-- menu déroulant pour les catégories -->
-            <label for="categories">Choisir une catégorie :</label>
-            <select id="categories">
-
-            </select>
-        </div>
-        <div>
-            <img src="logo.png" alt="KekebonKekepabon Logo" class="logo">
-            <p>La nutrition saine et équilibrée à portée de main.</p>
-        </div>
-        <div class="searchIngredients">
-            <input type="text" , id="ingredients" placeholder="Entrez un ingrédient">
-        </div>
-    </header>
+    
     <main>
         <!-- div pour stocké les recettes lors du choix de l'ingrédient -->
         <div id="recipes-by-ingredients"></div>
