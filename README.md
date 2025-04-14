@@ -1,23 +1,76 @@
-# Projet-IBIS
+# 🍽️ Projet-IBIS
 
-Il s'agit d'une interface permettant, en exploitant une base de données, d'accéder à des recttes en fonctions de critères spécifiques choisies (la catégorie de plats à laquelle se rattache la recette, ses ingrédients où son pays d'origine)
+Une application web permettant de découvrir des recettes en fonction d’un ingrédient, d’un pays d’origine ou d’une catégorie culinaire, grâce à l’utilisation d’une API externe.
 
-# Contexte/Objectif
 
-Projet réalisé dans le cadre de la formation. L'objectif était d'apprendre à utiliser les fonctions asynchrones, exploiter l'API Fetch, apprendre à identifier les propriétés cibles, les récupérer et les intégrer dnas une structure définies en javascriot et html.
 
-# Installation
+# 🎯 Contexte/Objectif
 
-Utiliser le lien Github pour installer projet IBIS grâce à gitclone : https://github.com/KUISSI/Projet-IBIS.git
+Ce projet a été réalisé dans le cadre de notre formation afin d’apprendre à :
 
-# Informations générales
+- Maîtriser les fonctions asynchrones (async/await, .then())
 
-Le projet est terminé. Utilisation de HTML, CSS et JavaScript.
+- Exploiter l’API Fetch pour récupérer des données dynamiques
 
-# Installation et exécution
+- Analyser et manipuler des données JSON
 
-Pour faire fonctionner : lancer le "go live" ensuite utiliser soit la barre de recherche pour rentrer l'ingrédient voulu et obtenir le nom plus le descriptif visuel des différentes recettes liées ou les barres défilantes de "pays" ou "catégorie" pour avoir le même résultat en fonction de la sélection faite.Une fois cette première manoeuvre réalisée vous pouvez effectuer une seconde sélection en cliquant sur l'image de la recette voulue afin d'accéder au contenu de la recette.
+- Dynamiser une page HTML avec JavaScript
 
-# Contributeurs
+- Renforcer nos compétences en structure HTML et mise en page CSS
 
-Guy et Imane
+
+
+# ⚙️ Installation et lancement
+
+1. Cloner le projet :
+git clone https://github.com/KUISSI/Projet-IBIS.git
+
+2. Ouvrir le projet dans un éditeur (comme VS Code)
+
+3. Lancer le site :
+
+- Soit en ouvrant index.html dans un navigateur
+
+- Soit avec l’extension Live Server pour un rechargement automatique
+
+
+# 🧪 Fonctionnalités :
+
+🔍 Recherche de recettes par ingrédient
+
+🌍 Filtrage des recettes par pays d’origine
+
+🍱 Filtrage des recettes par catégorie
+
+🖼️ Affichage dynamique des résultats (images + noms)
+
+🧾 Détail de la recette au clic sur l’image : description, liste d’ingrédients, instructions, drapeau du pays
+
+🧠 Gestion des erreurs utilisateurs (ex. : ingrédient inexistant)
+
+# 💻 Technologies utilisées
+
+HTML5 / CSS3
+
+JavaScript (vanilla)
+
+API externe : TheMealDB
+
+# 👨‍🍳 Utilisation
+
+Tapez un ingrédient dans la barre de recherche (ex. "chicken")
+
+Sélectionnez un pays ou une catégorie via les menus déroulants
+
+Cliquez sur une recette pour voir ses détails complets
+
+Admirez les ingrédients, instructions, et aperçus d’ingrédients au survol 🧅🍅
+
+
+# 👥Contributeurs 
+
+Projet réalisé par :
+
+Guy
+Imane
+
