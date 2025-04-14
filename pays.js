@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (const detailedCountry of json.meals) {
           // créer un élément équivalent div qui sera stocké dans le bloc selectElementPays
           const optionElement = document.createElement("option");
-          // Réinitialisation de l'affichage de la zone pour éviter d'avoir une superposition d'affichage avec une ancienne demande
+
           optionElement.innerHTML = detailedCountry.strArea;
           // Valeur que l'on veut retrouver en résultat
           optionElement.value = detailedCountry.strArea;

@@ -1,3 +1,4 @@
+// fonction pour afficher les noms de recettes ainsi que leurs images
 function createRecipeCard(meal) {
   const divElement = document.createElement("div");
   divElement.className = "recipe";
